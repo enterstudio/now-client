@@ -6,8 +6,9 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp transpile",
-    "prepublish": "npm run build",
-    "test": "xo && ava --timeout=30s"
+    "prepublish": "npm run snyk-protect; npm run build",
+    "test": "xo && ava --timeout=30s",
+    "snyk-protect": "snyk protect"
   },
   "files": [
     "dist"
@@ -51,6 +52,8 @@
   },
   "dependencies": {
     "request": "^2.76.0",
-    "request-promise-native": "^1.0.3"
-  }
+    "request-promise-native": "^1.0.3",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
